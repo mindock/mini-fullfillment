@@ -13,8 +13,23 @@ class Sku(
 
     val code: String,
 
+    @Enumerated(EnumType.STRING)
     var status: SkuStatus,
 
     @OneToMany(mappedBy = "sku")
     var barcodes: MutableList<Barcode> = mutableListOf(),
-)
+) {
+
+    fun update(status: SkuStatus) {
+        this.status = status
+    }
+
+    companion object {
+        fun of(name: String, code: String): Sku =
+            Sku(
+                name = name,
+                code = code,
+                status = SkuStatus.READY
+            )
+    }
+}
