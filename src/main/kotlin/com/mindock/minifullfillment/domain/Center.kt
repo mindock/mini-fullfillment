@@ -12,8 +12,22 @@ class Center(
 
     val name: String,
 
+    @Enumerated(EnumType.STRING)
     var status: CenterStatus,
 
     @OneToMany(mappedBy = "center")
     var stocks: MutableList<Stock> = mutableListOf(),
-)
+) {
+
+    fun update(status: CenterStatus) {
+        this.status = status
+    }
+
+    companion object {
+        fun of(name: String, status: CenterStatus): Center =
+            Center(
+                name = name,
+                status = status
+            )
+    }
+}
