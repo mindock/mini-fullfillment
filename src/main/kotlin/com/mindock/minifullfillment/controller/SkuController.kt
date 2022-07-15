@@ -1,13 +1,16 @@
 package com.mindock.minifullfillment.controller
 
-import com.mindock.minifullfillment.dto.center.CenterCreateRequest
-import com.mindock.minifullfillment.dto.center.CenterResponse
-import com.mindock.minifullfillment.dto.center.CenterUpdateRequest
 import com.mindock.minifullfillment.dto.sku.SkuCreateRequest
 import com.mindock.minifullfillment.dto.sku.SkuResponse
 import com.mindock.minifullfillment.dto.sku.SkuUpdateRequest
 import com.mindock.minifullfillment.service.SkuService
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/v1/skus")
