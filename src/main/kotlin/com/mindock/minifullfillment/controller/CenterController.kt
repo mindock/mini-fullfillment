@@ -19,18 +19,14 @@ class CenterController(
 ) {
 
     @PostMapping
-    fun create(
-        @RequestBody request: CenterCreateRequest
-    ): CenterResponse {
+    fun create(@RequestBody request: CenterCreateRequest): CenterResponse {
         return CenterResponse.from(
             centerService.create(request)
         )
     }
 
     @GetMapping("/{centerId}")
-    fun getCenter(
-        @PathVariable centerId: Long,
-    ): CenterResponse {
+    fun getCenter(@PathVariable centerId: Long): CenterResponse {
         return CenterResponse.from(
             centerService.find(centerId)
         )

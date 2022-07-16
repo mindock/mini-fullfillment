@@ -19,18 +19,14 @@ class SkuController(
 ) {
 
     @PostMapping
-    fun create(
-        @RequestBody request: SkuCreateRequest
-    ): SkuResponse {
+    fun create(@RequestBody request: SkuCreateRequest): SkuResponse {
         return SkuResponse.from(
             skuService.create(request)
         )
     }
 
     @GetMapping("/{skuId}")
-    fun getCenter(
-        @PathVariable skuId: Long,
-    ): SkuResponse {
+    fun getCenter(@PathVariable skuId: Long): SkuResponse {
         return SkuResponse.from(
             skuService.find(skuId)
         )
