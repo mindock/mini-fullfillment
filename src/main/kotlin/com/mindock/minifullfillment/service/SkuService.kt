@@ -14,6 +14,10 @@ class SkuService(
 ) {
 
     fun create(request: SkuCreateRequest): Sku {
+        if (skuRepository.existsByCode(request.code)) {
+            throw IllegalArgumentException("Sku 코드(${request.code})가 이미 존재합니다.")
+        }
+
         val sku = Sku.of(
             name = request.name,
             code = request.code
