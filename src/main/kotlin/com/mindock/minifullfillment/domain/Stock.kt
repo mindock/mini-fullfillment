@@ -14,16 +14,17 @@ class Stock(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "stock_id")
+    @Column(name = "stock_id", nullable = false)
     val id: Long = 0L,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "center_id")
+    @JoinColumn(name = "center_id", nullable = false)
     val center: Center,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sku_id")
+    @JoinColumn(name = "sku_id", nullable = false)
     val sku: Sku,
 
+    @Column(name = "quantity", nullable = false)
     var quantity: Int
 )

@@ -15,12 +15,14 @@ class Center(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "center_id")
+    @Column(name = "center_id", nullable = false)
     val id: Long = 0L,
 
+    @Column(name = "name", nullable = false)
     val name: String,
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
     var status: CenterStatus,
 
     @OneToMany(mappedBy = "center")

@@ -13,14 +13,17 @@ import javax.persistence.OneToMany
 class Sku(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "sku_id")
+    @Column(name = "sku_id", nullable = false)
     val id: Long = 0L,
 
+    @Column(name = "name", length = 20, nullable = false)
     val name: String,
 
+    @Column(name = "code", unique = true, nullable = false)
     val code: String,
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
     var status: SkuStatus,
 
     @OneToMany(mappedBy = "sku")
