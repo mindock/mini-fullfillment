@@ -2,6 +2,7 @@ package com.mindock.minifullfillment.service
 
 import com.mindock.minifullfillment.domain.Sku
 import com.mindock.minifullfillment.domain.SkuRepository
+import com.mindock.minifullfillment.domain.SkuStatus
 import com.mindock.minifullfillment.dto.sku.SkuCreateRequest
 import com.mindock.minifullfillment.dto.sku.SkuUpdateRequest
 import org.springframework.data.repository.findByIdOrNull
@@ -20,7 +21,8 @@ class SkuService(
 
         val sku = Sku.of(
             name = request.name,
-            code = request.code
+            code = request.code,
+            status = SkuStatus.READY,
         )
         return skuRepository.save(sku)
     }

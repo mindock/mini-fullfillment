@@ -35,11 +35,11 @@ class Sku(
     }
 
     companion object {
-        fun of(name: String, code: String): Sku =
+        fun of(name: String, code: String, status: SkuStatus): Sku =
             Sku(
                 name = name,
                 code = code,
-                status = SkuStatus.READY
+                status = status
             )
     }
 }
