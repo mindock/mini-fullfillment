@@ -29,8 +29,15 @@ class Center(
     var stocks: MutableList<Stock> = mutableListOf(),
 ) {
 
+    val canReceive: Boolean
+        get() = status.canReceive
+
     fun update(status: CenterStatus) {
         this.status = status
+    }
+
+    fun addStock(stock: Stock) {
+        this.stocks.add(stock)
     }
 
     companion object {

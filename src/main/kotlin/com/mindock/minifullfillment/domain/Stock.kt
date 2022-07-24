@@ -27,4 +27,18 @@ class Stock(
 
     @Column(name = "quantity", nullable = false)
     var quantity: Int
-)
+) {
+
+    fun addQuantity(quantity: Int) {
+        this.quantity += quantity
+    }
+
+    companion object {
+        fun of(center: Center, sku: Sku, quantity: Int): Stock =
+            Stock(
+                center = center,
+                sku = sku,
+                quantity = quantity
+            )
+    }
+}
