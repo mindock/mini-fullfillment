@@ -30,6 +30,9 @@ class Sku(
     var barcodes: MutableList<Barcode> = mutableListOf(),
 ) {
 
+    val canReceive: Boolean
+        get() = status.canReceive
+
     fun update(status: SkuStatus) {
         this.status = status
     }
