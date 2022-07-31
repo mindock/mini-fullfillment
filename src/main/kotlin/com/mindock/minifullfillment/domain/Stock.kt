@@ -29,7 +29,12 @@ class Stock(
     var quantity: Int
 ) {
 
+    init {
+        check(quantity >= 0) { "재고 수량은 0 이상이어야 합니다." }
+    }
+
     fun addQuantity(quantity: Int) {
+        check(quantity > 0) { "입고 수량은 0 초과이어야 합니다." }
         this.quantity += quantity
     }
 
